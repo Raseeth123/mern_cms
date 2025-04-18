@@ -49,7 +49,7 @@ app.delete('/api/blogs/:id', async (req, res) => {
     if (!blog) return res.status(404).json({ error: 'Not found' });
     if (blog.author !== author) return res.status(403).json({ error: 'Unauthorized' });
   
-    await Blog.findByIdAndDelete(req.params.id); // ✅ Updated line
+    await Blog.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted' });
   });
   
